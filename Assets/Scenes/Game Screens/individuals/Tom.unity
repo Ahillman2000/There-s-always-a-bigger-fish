@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 299229835}
   - component: {fileID: 299229836}
   - component: {fileID: 299229837}
+  - component: {fileID: 299229838}
   m_Layer: 0
   m_Name: player_yellow
   m_TagString: PlayerYellow
@@ -498,6 +499,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.16, y: 8.11, z: 0.2}
   m_Center: {x: -0.0000019073486, y: 0.00000047683716, z: 0}
+--- !u!114 &299229838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299229834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bd06a4710626148b1abf1366f34480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
 --- !u!1001 &304923874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,6 +677,7 @@ GameObject:
   - component: {fileID: 334715878}
   - component: {fileID: 334715879}
   - component: {fileID: 334715880}
+  - component: {fileID: 334715881}
   m_Layer: 0
   m_Name: player_green
   m_TagString: PlayerGreen
@@ -746,6 +761,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.17, y: 6.66, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &334715881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334715877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bd06a4710626148b1abf1366f34480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
 --- !u!1 &367282096
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +944,7 @@ GameObject:
   - component: {fileID: 519035298}
   - component: {fileID: 519035299}
   - component: {fileID: 519035300}
+  - component: {fileID: 519035301}
   m_Layer: 0
   m_Name: player_red
   m_TagString: PlayerRed
@@ -999,6 +1028,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.16, y: 8.11, z: 0.2}
   m_Center: {x: -0.0000019073486, y: 0.00000023841858, z: 0}
+--- !u!114 &519035301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519035297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bd06a4710626148b1abf1366f34480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
 --- !u!1 &536866505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,6 +3819,7 @@ GameObject:
   - component: {fileID: 1897863681}
   - component: {fileID: 1897863682}
   - component: {fileID: 1897863683}
+  - component: {fileID: 1897863684}
   m_Layer: 0
   m_Name: player_blue
   m_TagString: PlayerBlue
@@ -3860,6 +3903,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.17, y: 6.66, z: 0.2}
   m_Center: {x: 0, y: 0.0000009536743, z: 0}
+--- !u!114 &1897863684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897863680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bd06a4710626148b1abf1366f34480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
 --- !u!1001 &1906940989
 PrefabInstance:
   m_ObjectHideFlags: 0

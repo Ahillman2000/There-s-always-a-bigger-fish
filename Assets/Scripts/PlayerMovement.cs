@@ -27,10 +27,42 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        GameObject PLayerBlue = GameObject.FindGameObjectWithTag("PlayerBlue");
+        GameObject PlayerBlue = GameObject.FindGameObjectWithTag("PlayerBlue");
         GameObject PlayerRed = GameObject.FindGameObjectWithTag("PlayerRed");
         GameObject PlayerYellow = GameObject.FindGameObjectWithTag("PlayerYellow");
         GameObject PlayerGreen = GameObject.FindGameObjectWithTag("PlayerGreen");
+    }
+    bool Combat(GameObject attacker, GameObject target)
+    {
+        
+        float distance = Mathf.Pow((attacker.transform.position.y - target.transform.position.y), 2) + Mathf.Pow((attacker.transform.position.x - target.transform.position.x), 2);
+        distance = Mathf.Pow(distance, 0.5f);
+        Debug.Log("The distance to the target is " + distance);
+        if (distance > 3)
+        {
+            Debug.Log("Too far to attack");
+            return false;
+        }
+        else
+        {
+            Debug.Log(attacker.name + " has fired a shot at " + target.name);
+            float hitChance = 100 - (distance * 25);
+            int hitRoll = Random.Range(0, 100);
+            //Console.WriteLine("chance = " + hitChance);
+            //Console.WriteLine("roll = " + hitRoll);
+            if (hitRoll < hitChance)
+            {
+                float damage = (hitChance - hitRoll) * 10;
+                target.GetComponent<HPManager>().HP -= damage;
+                Debug.Log("Hit, dealing " + damage + " damage to their HP, which is now " + target.GetComponent<HPManager>().HP);
+            }
+            else
+            {
+                Debug.Log("Missed the target, perhaps move closer.");
+
+            }
+            return true;
+        }
     }
 
     void Update()
@@ -50,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("selected player_blue");
                 player_selected = 'b';
+                //PlayerBlue.gameObject.GetComponent<HPManager>().HP = 0;
             }
             else if (hitInfo.transform.gameObject.name == "player_red")
             {
@@ -73,23 +106,52 @@ public class PlayerMovement : MonoBehaviour
         {
             if (player_selected == 'b')
             {
-                PlayerBlue.transform.position = view;
-                Debug.Log("placed player_blue");
+                if ((hitInfo.transform.gameObject.name == "player_green") || (hitInfo.transform.gameObject.name == "player_yellow") || (hitInfo.transform.gameObject.name == "player_red"))
+                {
+                    Combat(PlayerBlue, hitInfo.transform.gameObject);
+                }
+                else
+                {
+                    PlayerBlue.transform.position = view;
+                    Debug.Log("placed player_blue");
+                }
+                
             }
             else if (player_selected == 'r')
             {
-                PlayerRed.transform.position = view;
-                Debug.Log("placed player_red");
+                if ((hitInfo.transform.gameObject.name == "player_green") || (hitInfo.transform.gameObject.name == "player_yellow") || (hitInfo.transform.gameObject.name == "player_blue"))
+                {
+                    Combat(PlayerRed, hitInfo.transform.gameObject);
+                }
+                else
+                {
+                    PlayerRed.transform.position = view;
+                    Debug.Log("placed player_red");
+                }
             }
             else if (player_selected == 'y')
             {
-                PlayerYellow.transform.position = view;
-                Debug.Log("placed player_yellow");
+                if ((hitInfo.transform.gameObject.name == "player_green") || (hitInfo.transform.gameObject.name == "player_blue") || (hitInfo.transform.gameObject.name == "player_red"))
+                {
+                    Combat(PlayerYellow, hitInfo.transform.gameObject);
+                }
+                else
+                {
+                    PlayerYellow.transform.position = view;
+                    Debug.Log("placed player_yellow");
+                }
             }
             else if (player_selected == 'g')
             {
-                PlayerGreen.transform.position = view;
-                Debug.Log("placed player_green");
+                if ((hitInfo.transform.gameObject.name == "player_yellow") || (hitInfo.transform.gameObject.name == "player_blue") || (hitInfo.transform.gameObject.name == "player_red"))
+                {
+                    Combat(PlayerGreen, hitInfo.transform.gameObject);
+                }
+                else
+                {
+                    PlayerGreen.transform.position = view;
+                    Debug.Log("placed player_green");
+                }
             }
             click_mode = 0;
         }
