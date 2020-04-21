@@ -11,6 +11,7 @@ TagManager:
   - PlaneWtaerTile
   - LandTile
   - TempleTile
+  - Gold
   layers:
   - Default
   - TransparentFX
